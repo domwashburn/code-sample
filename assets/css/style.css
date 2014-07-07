@@ -1,0 +1,139 @@
+/* SCSS IMPORTS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* determine rem value for functions */
+/* rem Function */
+/* rem Line Height */
+/* VARIABLES */
+/* STRUCTURE */
+@viewport {
+  width: device-width;
+}
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 20px;
+}
+
+.content {
+  max-width: 1029px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+hgroup {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* TYPOGRAPHY */
+html {
+  color: white;
+  font-family: Arial;
+  font-size: 100%;
+}
+
+.headline {
+  font-size: 1rem;
+}
+
+a {
+  color: #0388bc;
+}
+
+.headline {
+  color: white;
+  font-family: "Helvetica";
+  font-size: 4.6875rem;
+  font-weight: bold;
+  text-shadow: 0 1px 5px rgba(9, 9, 9, 0.1);
+}
+
+.copy {
+  line-height: 1.5;
+  padding: 0 50px;
+}
+
+.copyright {
+  font-size: 0.625rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* GENERAL STYLES */
+.background {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  z-index: -9999;
+}
+
+.btn {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  display: inline-block;
+  padding: 13px 26px;
+  text-decoration: none;
+  color: white;
+}

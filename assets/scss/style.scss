@@ -1,0 +1,88 @@
+/* SCSS IMPORTS */
+@import "reset-normalize";
+@import "compass/css3";
+@import "mixins";
+@import "functions";
+
+/* VARIABLES */
+$lightText: #ffffff;
+$paramoreBlue: #0388bc;
+
+/* STRUCTURE */
+@viewport {
+   width: device-width;
+}
+
+*, *:before, *:after {
+	@include box-sizing;
+}
+
+body {
+	padding-top: 20px;
+}
+
+.content {
+	max-width: 1029px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+hgroup {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+/* TYPOGRAPHY */
+html {
+	color: $lightText;
+	font-family: Arial;
+	font-size: 100%;
+}
+
+.headline {
+	font-size: rem();
+}
+
+a {
+	color: $paramoreBlue;
+}
+
+.headline {
+	color: $lightText;
+	font-family: "Helvetica";
+	font-size: rem(75);
+	font-weight: bold;
+	@include text-shadow(0 1px 5px rgba(9,9,9,.1));
+}
+
+.copy {
+	line-height: 1.5;
+	padding: 0 50px;
+}
+
+.copyright {
+	font-size: rem(10);
+	color: rgba($lightText, .4);
+}
+
+/* GENERAL STYLES */
+.background {
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	z-index: -9999;
+}
+
+.btn {
+	border: 1px solid rgba(#fff, .5);
+	font-weight: bold;
+	display: inline-block;
+	padding: 13px 26px;
+	text-decoration: none;
+	color: $lightText;
+}
+
