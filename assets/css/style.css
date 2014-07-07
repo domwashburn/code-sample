@@ -73,10 +73,13 @@ body {
   padding-top: 20px;
 }
 
+section, footer {
+  text-align: center;
+}
+
 .content {
   max-width: 1029px;
   margin: 0 auto;
-  text-align: center;
 }
 
 hgroup {
@@ -118,7 +121,7 @@ a {
 }
 
 /* GENERAL STYLES */
-.background {
+.videoBackground {
   min-width: 100%;
   min-height: 100%;
   width: auto;
@@ -127,6 +130,17 @@ a {
   position: absolute;
   top: 0;
   z-index: -9999;
+}
+
+[data-is_mobile="true"] body {
+  background: url("../images/splashpage.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+[data-is_mobile="true"] video {
+  display: none;
 }
 
 .btn {
