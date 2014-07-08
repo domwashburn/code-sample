@@ -8,11 +8,16 @@
 
 	<link  rel="stylesheet" href="assets/css/style.css">
 
-	<script src="assets/js/modernizr.js"></script>
+	<!--<script src="assets/js/modernizr.js"></script>-->
 	<script type='text/javascript' src="//wurfl.io/wurfl.js"></script>
 	<script>
-		document.documentElement.setAttribute('data-form_factor', WURFL.form_factor );
-		document.documentElement.setAttribute('data-is_mobile', WURFL.is_mobile );
+		//document.documentElement.setAttribute('data-form_factor', WURFL.form_factor );
+		//document.documentElement.setAttribute('data-is_mobile', WURFL.is_mobile );
+		if ( WURFL.is_mobile === true) {
+			document.documentElement.className += ' mobile';
+		} else if ( WURFL.is_mobile === false) {
+			document.documentElement.className += ' not-mobile';
+		}
 	</script>
 </head>
 <body>

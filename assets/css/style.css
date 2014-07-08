@@ -132,14 +132,14 @@ a {
   z-index: -9999;
 }
 
-[data-is_mobile="true"] body {
+.mobile {
   background: url("../images/splashpage.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
+  min-height: 100%;
 }
 
-[data-is_mobile="true"] video {
+.mobile video {
   display: none;
 }
 
