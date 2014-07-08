@@ -71,10 +71,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 body {
   padding-top: 20px;
+  background: #111111;
 }
 
 section, footer {
   text-align: center;
+}
+
+section {
+  padding-top: 170px;
 }
 
 .content {
@@ -83,7 +88,7 @@ section, footer {
 }
 
 hgroup {
-  max-width: 600px;
+  max-width: 602px;
   margin: 0 auto;
 }
 
@@ -94,7 +99,7 @@ html {
   font-size: 100%;
 }
 
-.headline {
+.splash__headline {
   font-size: 1rem;
 }
 
@@ -102,17 +107,24 @@ a {
   color: #0388bc;
 }
 
-.headline {
+.splash__headline {
   color: white;
+  line-height: 4.625rem;
   font-family: "Helvetica";
   font-size: 4.6875rem;
   font-weight: bold;
   text-shadow: 0 1px 5px rgba(9, 9, 9, 0.1);
 }
+.splash__headline:last-child {
+  margin-bottom: 27px;
+}
 
-.copy {
+.splash__copy {
   line-height: 1.5;
-  padding: 0 50px;
+  padding: 0 48px;
+}
+.splash__copy:last-child {
+  margin-bottom: 55px;
 }
 
 .copyright {
@@ -120,15 +132,19 @@ a {
   color: rgba(255, 255, 255, 0.4);
 }
 
-/* GENERAL STYLES */
-.videoBackground {
+/* BACKGROUND STYLES */
+.background, .videoBackground {
   min-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
   background-size: cover;
+}
+
+.videoBackground {
   position: absolute;
   top: 0;
+  opacity: .8;
   z-index: -9999;
 }
 
@@ -137,17 +153,60 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100%;
+  opacity: .8;
+}
+.mobile * {
+  opacity: 1;
 }
 
 .mobile video {
   display: none;
 }
 
-.btn {
+/* LIGHTBOX STYLES */
+.gallery__container {
+  postition: relative;
+  overflow: hidden;
+}
+
+.gallery__slide {
+  display: block;
+  min-width: 0px;
+  max-width: 600px;
+  position: absolute;
+  opacity: 0;
+  display: none;
+}
+
+.gallery__slide * {
+  width: 100%;
+}
+
+.active {
+  opacity: 1;
+  display: initial;
+}
+
+/* GENERAL STYLES */
+.logo {
+  width: 41px;
+  height: 42px;
+}
+
+.splash__btn {
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-weight: bold;
   display: inline-block;
   padding: 13px 26px;
   text-decoration: none;
   color: white;
+}
+
+.arrow-icon {
+  background: url("../images/arrow-icon.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-left: 9px;
 }
