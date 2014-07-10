@@ -212,7 +212,6 @@ video {
 .gallery__container ul {
   position: fixed;
   overflow: hidden;
-  width: 600px;
 }
 
 .gallery__slide {
@@ -250,7 +249,7 @@ video {
   overflow: hidden;
 }
 
-.gallery__nav__containter {
+.gallery__nav__container {
   width: 700px;
 }
 

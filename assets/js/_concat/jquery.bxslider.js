@@ -593,7 +593,7 @@
 				// if a buildPager function is supplied, use it to get pager link value, else use index + 1
 				if(slider.settings.buildPager && $.isFunction(slider.settings.buildPager)){
 					linkContent = slider.settings.buildPager(i);
-					slider.pagerEl.addClass('gallery__nav__containter');
+					slider.pagerEl.addClass('gallery__nav__container');
 				}else{
 					linkContent = i + 1;
 					slider.pagerEl.addClass('bx-default-pager');
