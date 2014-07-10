@@ -109,18 +109,17 @@
             /* Remove or hide all elements */
             function closeLightbox() {
                 var s = $self[0].style;
+                $('body').removeAttr('style');
                 if (opts.destroyOnClose) {
                     $self.add($overlay).remove();
                 } else {
                     $self.add($overlay).hide();
+
                 }
 
                 //show the hidden parent lightbox
                 if (opts.parentLightbox) {
                     opts.parentLightbox.fadeIn(200);
-                }
-                if (opts.preventScroll) {
-                    $('body').css('overflow', '');
                 }
                 $iframe.remove();
 
@@ -187,7 +186,7 @@
                         $self.css({ position: 'fixed'}).css(opts.modalCSS);
                     }
                     if (opts.preventScroll) {
-                       // $('body').css('overflow', 'hidden');
+                       $('body').css('overflow', 'hidden');
                     }
                 }
             }

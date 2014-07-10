@@ -112,14 +112,11 @@
 	</div>
 	
 	<!-- Scripts... nuff said -->
-	<script src="assets/js/scripts.min.js?0.4"></script>
+	<script src="assets/js/scripts.min.js?0.6"></script>
 	<script>
 	    $('#peeps-trigger').click(function(e) {
         $('#peeps').lightbox_me({
-            centered: true, 
-            onLoad: function() { 
-                $('#sign_up').find('input:first').focus()
-                }
+            centered: true
             });
         e.preventDefault();
       });
