@@ -145,7 +145,6 @@ video {
 
 .gallery__container {
     position: relative;
-    overflow: hidden;
     padding: 0;
     margin: 0;
     min-height: 400px;
@@ -168,13 +167,22 @@ video {
 	}
 }
 
-.gallery__next {
+.gallery__next, .gallery__prev {
+	background-repeat: no-repeat;
+	height: 25px;
 	position: absolute;
-	margin: auto 0;
+	top: 50%;
+	width: 15px;	
+}
+
+.gallery__next {
 	background: url('../images/arrow-right.svg');
-	width: 16px;
-	height: 24px;
 	left: -55px;
+}
+
+.gallery__prev {
+	background: url('../images/arrow-left.svg');
+	right: -55px;
 }
 
 .gallery__slide img {
@@ -193,26 +201,30 @@ video {
 .gallery__nav__thumb {
 	display: inline-block;
 	float: left;
-	height: 137px;
+	height: 136px;
 	list-style: none;
-	margin: 15px 18px 0 0;
-	opacity: .5;
-	width: 137px;
+	margin: 15px 19px 0 0;
+	width: 136px;
 	position: relative;
-	&:hover {
-		opacity: .75;
+	img {
+		opacity: .5;
+		&:hover {
+			opacity: .75;
+		}
 	}
- 	&:after {
-	  	width: 100%;
-	  	height: 100%;
-	  	position: absolute;
-	  	top: 0;
-	  	left: 0;
-	  	background: rgba(#000, 1);
-	}
-	&.active {
+	&.active img{
 		opacity: 1;
 	}
+	
+ 	&::after {
+ 		content: "";
+	  	width: 136px;
+	  	height: 136px;
+	  	position: fixed;
+	  	background: rgba(#000, 1);
+	  	z-index: -1;
+	}
+	
 }
 
 .gallery__nav-link {
