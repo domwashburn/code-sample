@@ -8,7 +8,8 @@
 
 	<link  rel="stylesheet" href="assets/css/style.css">
 
-	<!--<script src="assets/js/modernizr.js"></script>-->
+	<script src="assets/js/modernizr.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type='text/javascript' src="//wurfl.io/wurfl.js"></script>
 	<script>
 		//document.documentElement.setAttribute('data-form_factor', WURFL.form_factor );
@@ -30,20 +31,21 @@
 			<h1 class="splash__headline">A better website.</h1>
 			<p class="splash__copy">Big things are coming soon. We'll be celebrating with a launch party on our new rooftop deck. Maybe you'll get an invite.</p> 
 			<p class="splash__copy">In the meantime, keep up with us @ParamoreDigital.</p>
-			<a class="splash__btn" href="#">View Image Gallery<i class="arrow-icon"></i></a>
+			<a class="splash__btn" id="peeps-trigger" href>View Image Gallery<i class="arrow-icon"></i></a>
 		</hgroup>
 	</section>
 	<footer class="content">
 		<p>Continue to our <a href="#">current site.</a></p>
 		<p class="copyright">&copy; 2013 Paramore | the digital agency</p>
 	</footer>
-	<div class="lightbox lightbox__bkg">
+<!-- 	<div class="lightbox lightbox__bkg">
 		<div class="lightbox__gallery">
 			<div class="gallery">
 				<ul class="gallery__container">
-					<li><img src="http://placehold.it/600x400" alt="some text" class="gallery__slide"></li>
-					<li><img src="http://placehold.it/600x400" alt="some text" class="gallery__slide"></li>
-					<li><img src="http://placehold.it/600x400" alt="some text" class="gallery__slide"></li>
+					<li><img src="assets/images/gallery-01.jpg" alt="some text" class="gallery__slide"></li>
+					<li><img src="assets/images/gallery-02.jpg" alt="some text" class="gallery__slide"></li>
+					<li><img src="assets/images/gallery-03.jpg" alt="some text" class="gallery__slide"></li>
+					<li><img src="assets/images/gallery-04.jpg" alt="some text" class="gallery__slide"></li>
 				</ul>
 				<a href="" class="gallery__next" id="next"></a>
 				<a href="" class="gallery__previous" id="previous"></a>
@@ -51,11 +53,77 @@
 
 		</div>
 	</div>
-	<video autoplay loop poster="assets/images/splashpage.png" class="videoBackground">
-		 <source src="assets/videos/splashpage.mp4" type="video/mp4">
-		 <source src="assets/videos/splashpage.webm" type="video/webm">
-		 <source src="assets/videos/splashpage.ogg" type="video/ogg">
-	</video>
+ -->
+	<!-- Lightbox Overlay -->
+	<div class="lightbox" id="peeps">
+	    <div class="gallery">
+	      <div id="gallery" class="gallery__container">
+	      	<ul>
+	      		   <li class="gallery__slide active">
+	      		       	<img data-lightbox="peeps" src="assets/images/gallery-01.jpg">
+	      	       </li>
+	      	       <li class="gallery__slide">
+	      	       		<img data-lightbox="peeps" src="assets/images/gallery-02.jpg">
+	      	       </li>
+	      	       <li class="gallery__slide">
+	      	       		<img data-lightbox="peeps" src="assets/images/gallery-03.jpg">
+	      	       </li>
+	      	       <li class="gallery__slide">
+	      	       		<img data-lightbox="peeps" src="assets/images/gallery-04.jpg">
+	      	       </li>
+	      	</ul>
+	      </div>
+	      <div class="gallery__nav">
+	      	<ul class="gallery__nav__containter">
+	      		<li class="gallery__nav-item gallery__nav__thumb active">
+	      			<a class="gallery__nav-link" href="#">
+	      				<span><img src="assets/images/gallery-01.jpg" height="136" title="" alt=""></span>
+	      			</a>
+	      		</li>
+	      		<li class="gallery__nav-item gallery__nav__thumb">
+	      			<a class="gallery__nav-link" href="#">
+	      				<span><img src="assets/images/gallery-02.jpg" height="136" title="" alt=""></span>
+	      			</a>
+	      		</li>
+	      		<li class="gallery__nav-item gallery__nav__thumb">
+	      			<a class="gallery__nav-link" href="#">
+	      				<span><img src="assets/images/gallery-03.jpg" height="136" title="" alt=""></span>
+	      			</a>
+	      		</li>
+	      		<li class="gallery__nav-item gallery__nav__thumb">
+	      			<a class="gallery__nav-link" href="#">
+	      				<span><img src="assets/images/gallery-04.jpg" height="136" title="" alt=""></span>
+	      			</a>
+	      		</li>
+	      	</ul>
+	      </div>
+	    </div>
+	</div>
 	
+	<!-- Background Video -->
+	<div class="videoBackground">
+		<video autoplay loop poster="assets/images/splashpage.png" >
+			<source src="assets/videos/splashpage.mp4" type="video/mp4">
+			<source src="assets/videos/splashpage.webm" type="video/webm">
+			<source src="assets/videos/splashpage.ogg" type="video/ogg">
+		</video>
+	</div>
+	
+	<!-- Scripts... nuff said -->
+	<script src="assets/js/scripts.min.js?0.4"></script>
+	<script>
+	    $('#peeps-trigger').click(function(e) {
+        $('#peeps').lightbox_me({
+            centered: true, 
+            onLoad: function() { 
+                $('#sign_up').find('input:first').focus()
+                }
+            });
+        e.preventDefault();
+      });
+	</script>
+	<script>
+		$('.bxslider').bxSlider();
+	</script>
 </body>
 </html>
