@@ -134,6 +134,10 @@ a {
   margin-bottom: 55px;
 }
 
+.footer-text {
+  opacity: .8;
+}
+
 .copyright {
   font-size: 0.625rem;
   color: rgba(255, 255, 255, 0.4);
