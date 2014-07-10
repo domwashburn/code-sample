@@ -38,68 +38,48 @@
 		<p class="footer-text">Continue to our <a href="#">current site.</a></p>
 		<p class="copyright">&copy; 2013 Paramore | the digital agency</p>
 	</footer>
-<!-- 	<div class="lightbox lightbox__bkg">
-		<div class="lightbox__gallery">
-			<div class="gallery">
-				<ul class="gallery__container">
-					<li><img src="assets/images/gallery-01.jpg" alt="some text" class="gallery__slide"></li>
-					<li><img src="assets/images/gallery-02.jpg" alt="some text" class="gallery__slide"></li>
-					<li><img src="assets/images/gallery-03.jpg" alt="some text" class="gallery__slide"></li>
-					<li><img src="assets/images/gallery-04.jpg" alt="some text" class="gallery__slide"></li>
-				</ul>
-				<a href="" class="gallery__next" id="next"></a>
-				<a href="" class="gallery__previous" id="previous"></a>
-			</div>
-
-		</div>
-	</div>
- -->
 	<!-- Lightbox Overlay -->
 	<div class="lightbox" id="peeps">
-	    <div class="gallery">
-	      <div id="gallery" class="gallery__container">
-	      	<ul>
-	      		   <li class="gallery__slide active">
-	      		       	<img data-lightbox="peeps" src="assets/images/gallery-01.jpg">
-	      	       </li>
-	      	       <li class="gallery__slide">
-	      	       		<img data-lightbox="peeps" src="assets/images/gallery-02.jpg">
-	      	       </li>
-	      	       <li class="gallery__slide">
-	      	       		<img data-lightbox="peeps" src="assets/images/gallery-03.jpg">
-	      	       </li>
-	      	       <li class="gallery__slide">
-	      	       		<img data-lightbox="peeps" src="assets/images/gallery-04.jpg">
-	      	       </li>
-	      	</ul>
-	      	<a href class="gallery__next"></a>
-	      	<a href class="gallery__prev"></a>
-	      </div>
-	      <div class="gallery__nav">
-	      	<ul class="gallery__nav__containter">
-	      		<li class="gallery__nav-item gallery__nav__thumb active">
-	      			<a class="gallery__nav-link" href="#">
-	      				<img src="assets/images/thumb-1.jpg" height="136" title="" alt="">
-	      			</a>
-	      		</li>
-	      		<li class="gallery__nav-item gallery__nav__thumb">
-	      			<a class="gallery__nav-link" href="#">
-	      				<img src="assets/images/thumb-2.jpg" height="136" title="" alt="">
-	      			</a>
-	      		</li>
-	      		<li class="gallery__nav-item gallery__nav__thumb">
-	      			<a class="gallery__nav-link" href="#">
-	      				<img src="assets/images/thumb-3.jpg" height="136" title="" alt="">
-	      			</a>
-	      		</li>
-	      		<li class="gallery__nav-item gallery__nav__thumb">
-	      			<a class="gallery__nav-link" href="#">
-	      				<img src="assets/images/thumb-4.jpg" height="136" title="" alt="">
-	      			</a>
-	      		</li>
-	      	</ul>
-	      </div>
-	    </div>
+	    <ul class="bxslider">
+	    	   <li class="gallery__slide active">
+	    	       	<img data-lightbox="peeps" src="assets/images/gallery-01.jpg">
+	           </li>
+	           <li class="gallery__slide">
+	           		<img data-lightbox="peeps" src="assets/images/gallery-02.jpg">
+	           </li>
+	           <li class="gallery__slide">
+	           		<img data-lightbox="peeps" src="assets/images/gallery-03.jpg">
+	           </li>
+	           <li class="gallery__slide">
+	           		<img data-lightbox="peeps" src="assets/images/gallery-04.jpg">
+	           </li>
+	    </ul>
+	    
+	    
+	    <!-- <div class="gallery__nav">
+	    	<ul class="gallery__nav__containter">
+	    		<li class="gallery__nav-item gallery__nav__thumb active">
+	    			<a class="gallery__nav-link" href="#">
+	    				<img src="assets/images/thumb-1.jpg" height="136" title="" alt="">
+	    			</a>
+	    		</li>
+	    		<li class="gallery__nav-item gallery__nav__thumb">
+	    			<a class="gallery__nav-link" href="#">
+	    				<img src="assets/images/thumb-2.jpg" height="136" title="" alt="">
+	    			</a>
+	    		</li>
+	    		<li class="gallery__nav-item gallery__nav__thumb">
+	    			<a class="gallery__nav-link" href="#">
+	    				<img src="assets/images/thumb-3.jpg" height="136" title="" alt="">
+	    			</a>
+	    		</li>
+	    		<li class="gallery__nav-item gallery__nav__thumb">
+	    			<a class="gallery__nav-link" href="#">
+	    				<img src="assets/images/thumb-4.jpg" height="136" title="" alt="">
+	    			</a>
+	    		</li>
+	    	</ul>
+	    </div> -->
 	</div>
 	
 	<!-- Background Video -->
@@ -112,7 +92,7 @@
 	</div>
 	
 	<!-- Scripts... nuff said -->
-	<script src="assets/js/scripts.min.js?0.6"></script>
+	<script src="assets/js/scripts.min.js?0.7"></script>
 	<script>
 	    $('#peeps-trigger').click(function(e) {
         $('#peeps').lightbox_me({
@@ -122,7 +102,25 @@
       });
 	</script>
 	<script>
-		$('.bxslider').bxSlider();
+		$(document).ready(function(){
+			$('.bxslider').bxSlider({
+				nextText: '',
+				prevText: '',
+				infiniteLoop: true,
+				buildPager: function(slideIndex){
+				    switch(slideIndex){
+				      case 0:
+				        return '<img src="assets/images/thumb-1.jpg">';
+				      case 1:
+				        return '<img src="assets/images/thumb-2.jpg">';
+				      case 2:
+				        return '<img src="assets/images/thumb-3.jpg">';
+				      case 3:
+				        return '<img src="assets/images/thumb-4.jpg">';
+				    }
+				  }
+			});
+		});
 	</script>
 </body>
 </html>

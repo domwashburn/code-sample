@@ -34,7 +34,7 @@
 		preloadImages: 'visible',
 		responsive: true,
 		slideZIndex: 50,
-		wrapperClass: 'bx-wrapper',
+		wrapperClass: 'gallery',
 
 		// TOUCH
 		touchEnabled: true,
@@ -183,7 +183,7 @@
 		 */
 		var setup = function(){
 			// wrap el in a wrapper
-			el.wrap('<div class="' + slider.settings.wrapperClass + '"><div class="bx-viewport"></div></div>');
+			el.wrap('<div class="' + slider.settings.wrapperClass + '"><div id="gallery" class="gallery__container"><div class="gallery__wrap"></div></div></div>');
 			// store a namspace reference to .bx-viewport
 			slider.viewport = el.parent();
 			// add a loading div to display while images are loading
@@ -192,8 +192,7 @@
 			// set el to a massive width, to hold any needed slides
 			// also strip any margin and padding from el
 			el.css({
-				width: slider.settings.mode == 'horizontal' ? (slider.children.length * 100 + 215) + '%' : 'auto',
-				position: 'relative'
+				width: slider.settings.mode == 'horizontal' ? (slider.children.length * 100 + 215) + '%' : 'auto'
 			});
 			// if using CSS, add the easing property
 			if(slider.usingCSS && slider.settings.easing){
@@ -220,9 +219,7 @@
 			}
 			// apply css to all slider children
 			slider.children.css({
-				'float': slider.settings.mode == 'horizontal' ? 'left' : 'none',
-				listStyle: 'none',
-				position: 'relative'
+				'float': slider.settings.mode == 'horizontal' ? 'left' : 'none'
 			});
 			// apply the calculated width after the float is applied to prevent scrollbar interference
 			slider.children.css('width', getSlideWidth());
@@ -240,7 +237,7 @@
 				slider.children.eq(slider.settings.startSlide).css({zIndex: slider.settings.slideZIndex, display: 'block'});
 			}
 			// create an element to contain all slider controls (pager, start / stop, etc)
-			slider.controls.el = $('<div class="bx-controls" />');
+			slider.controls.el = $('<div class="gallery__nav" />');
 			// if captions are requested, add them
 			if(slider.settings.captions) appendCaptions();
 			// check if startSlide is last slide
@@ -402,7 +399,7 @@
 			// start with any user-supplied slide width
 			var newElWidth = slider.settings.slideWidth;
 			// get the current viewport width
-			var wrapWidth = slider.viewport.width();
+			var wrapWidth = 600+'px'; //slider.viewport.width();
 			// if slide width was not supplied, or is larger than the viewport use the viewport width
 			if(slider.settings.slideWidth == 0 ||
 				(slider.settings.slideWidth > wrapWidth && !slider.carousel) ||
@@ -596,14 +593,14 @@
 				// if a buildPager function is supplied, use it to get pager link value, else use index + 1
 				if(slider.settings.buildPager && $.isFunction(slider.settings.buildPager)){
 					linkContent = slider.settings.buildPager(i);
-					slider.pagerEl.addClass('bx-custom-pager');
+					slider.pagerEl.addClass('gallery__nav__containter');
 				}else{
 					linkContent = i + 1;
 					slider.pagerEl.addClass('bx-default-pager');
 				}
 				// var linkContent = slider.settings.buildPager && $.isFunction(slider.settings.buildPager) ? slider.settings.buildPager(i) : i + 1;
 				// add the markup to the string
-				pagerHtml += '<div class="bx-pager-item"><a href="" data-slide-index="' + i + '" class="bx-pager-link">' + linkContent + '</a></div>';
+				pagerHtml += '<div class="gallery__nav-item gallery__nav__thumb"><a href="" data-slide-index="' + i + '" class="gallery__nav-link">' + linkContent + '</a></div>';
 			};
 			// populate the pager element with pager links
 			slider.pagerEl.html(pagerHtml);
@@ -615,7 +612,7 @@
 		var appendPager = function(){
 			if(!slider.settings.pagerCustom){
 				// create the pager DOM element
-				slider.pagerEl = $('<div class="bx-pager" />');
+				slider.pagerEl = $('<ul class="gallery__nav__container" />');
 				// if a pager selector was supplied, populate it with the pager
 				if(slider.settings.pagerSelector){
 					$(slider.settings.pagerSelector).html(slider.pagerEl);
@@ -787,9 +784,9 @@
 				return;
 			}
 			// remove all pager active classes
-			slider.pagerEl.find('a').removeClass('active');
+			slider.pagerEl.find('.gallery__nav__thumb').removeClass('active');
 			// apply the active class for all pagers
-			slider.pagerEl.each(function(i, el) { $(el).find('a').eq(slideIndex).addClass('active'); });
+			slider.pagerEl.each(function(i, el) { $(el).find('.gallery__nav__thumb').eq(slideIndex).addClass('active'); });
 		}
 
 		/**
